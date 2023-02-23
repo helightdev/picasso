@@ -1,0 +1,4 @@
+name: picasso_project
+repository: https://github.com/helightdev/picasso
+packages:
+  - .
