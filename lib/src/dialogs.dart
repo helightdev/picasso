@@ -26,6 +26,7 @@ showPicassoEditorDialog({
       builder: (context) => Theme(
             data: themeOverride!,
             child: Scaffold(
+              resizeToAvoidBottomInset: false,
               body: SizedBox(
                 width: mq.size.width,
                 height: mq.size.height,
