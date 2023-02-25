@@ -1,3 +1,7 @@
+## 0.0.3+2
+
+ - **FIX**: fix overlays not being shown and annotatedRenderOutput.
+
 ## 0.0.3+1
 
  - **FIX**: add resizeToAvoidBottomInset false to the dialogs scaffold.
