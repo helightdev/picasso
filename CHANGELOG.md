@@ -1,3 +1,7 @@
+## 0.0.3+1
+
+ - **FIX**: add resizeToAvoidBottomInset false to the dialogs scaffold.
+
 ## 0.0.3
 
  - **FIX**: pass onTap callback parameter to widget.
