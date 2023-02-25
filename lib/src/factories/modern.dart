@@ -214,7 +214,7 @@ class ElevatedButtonBottomWidgetFactory extends EditorBottomWidgetFactory {
     return ElevatedButtonBottomWidgetFactory(child: Builder(builder: (context) {
       var editorState = context.findAncestorStateOfType<PicassoEditorState>()!;
       return Text(editorState.translations.continueButton);
-    }));
+    }), onTap: onTap);
   }
 
   factory ElevatedButtonBottomWidgetFactory.$continue(
@@ -222,7 +222,7 @@ class ElevatedButtonBottomWidgetFactory extends EditorBottomWidgetFactory {
     return ElevatedButtonBottomWidgetFactory(child: Builder(builder: (context) {
       var editorState = context.findAncestorStateOfType<PicassoEditorState>()!;
       return Text(editorState.translations.continueButton);
-    }));
+    }), onTap: onTap);
   }
 
   @override
