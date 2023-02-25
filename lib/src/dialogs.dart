@@ -1,11 +1,62 @@
 import 'package:flutter/material.dart';
 import 'package:picasso/picasso.dart';
+import 'dart:ui' as ui;
+
+/// Creates and shows a [PicassoEditor] using a [Dialog].
+showPicassoEditorDialog({
+  required BuildContext context,
+  required ui.Image image,
+  required void Function(RenderOutput output) callback,
+  ThemeData? themeOverride,
+  List<PicassoTool> tools = const [],
+  CanvasSettings settings = const CanvasSettings(width: 1080, height: 1080),
+  ToolDisplayWidgetFactory displayWidgetFactory =
+      const ModernToolDisplayWidgetFactory(),
+  EditorContainerFactory containerFactory =
+      const ModernColumnEditorContainerFactory(),
+  EditorBottomWidgetFactory? bottomWidgetFactory,
+}) async {
+  var mq = MediaQuery.of(context);
+  themeOverride ??= Theme.of(context);
+  settings;
+  var combinedTools = [BackgroundImageTool(image, visible: true), ...tools];
+  var editorKey = GlobalKey<PicassoEditorState>();
+  showDialog(
+      context: context,
+      builder: (context) => Theme(
+            data: themeOverride!,
+            child: Scaffold(
+              body: SizedBox(
+                width: mq.size.width,
+                height: mq.size.height,
+                child: PicassoEditor(
+                  key: editorKey,
+                  settings: settings,
+                  tools: combinedTools,
+                  displayWidgetFactory: displayWidgetFactory,
+                  containerFactory: containerFactory,
+                  bottomWidgetFactory: bottomWidgetFactory ??
+                      ElevatedButtonBottomWidgetFactory.$continue(onTap: () async {
+                        var state = editorKey.currentState!;
+                        var output = await state.canvas.getRenderOutput();
+                        callback.call(output);
+                        // ignore: use_build_context_synchronously
+                        if (!context.mounted) return;
+                        Navigator.pop(context);
+                      }),
+                ),
+              ),
+            ),
+          ));
+}
 
 mixin SingleSliderValue {
   double get value;
 
   set value(double value);
+
   void reset() {}
+
   void scheduleRebuild(PicassoCanvasState state);
 }
 
