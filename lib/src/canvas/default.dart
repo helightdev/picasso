@@ -101,6 +101,7 @@ class DefaultCanvasState extends PicassoCanvasState
         }
         layer.annotateRenderMetadata(this, data);
       }
+      annotatedRenderData = data;
       WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
         renderPassCallback.call().then((value) {
           rebuildAllLayers();
@@ -154,7 +155,10 @@ class DefaultCanvasState extends PicassoCanvasState
               onScaleStart: (details) => handleScaleStart(details, isMouse),
               onScaleUpdate: (details) => handleScaleUpdate(details, isMouse),
               onScaleEnd: (details) => handleScaleEnd(details, isMouse),
-              child: _buildInner(),
+              child: Stack(children: [
+                Positioned.fill(child: _buildInner()),
+                ...buildOverlays(context)
+              ],),
             ),
           ),
         ));
