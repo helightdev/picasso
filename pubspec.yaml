@@ -4,7 +4,7 @@ version: 0.0.3+2
 repository: https://github.com/helightdev/picasso
 
 environment:
-  sdk: '>=2.19.2 <3.0.0'
+  sdk: '>=3.0.0-290.1.beta  <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
@@ -13,9 +13,9 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  meta: ^1.8.0
-  collection: ^1.17.0
-  intl: ^0.17.0
+  meta: ^1.9.0
+  collection: ^1.17.1
+  intl: ^0.18.0
   image: ^4.0.15
 
 dev_dependencies:
