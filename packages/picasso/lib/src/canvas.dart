@@ -36,16 +36,16 @@ class PicassoCanvas extends StatefulWidget {
 }
 
 class CanvasSettings {
-  final double width;
-  final double height;
-  final bool snapPosition;
-  final bool snapRotation;
-  final bool layerPromotion;
-  final int rotationSnapPoints;
-  final Color backgroundColor;
-  final bool readonly;
+  double width;
+  double height;
+  bool snapPosition;
+  bool snapRotation;
+  bool layerPromotion;
+  int rotationSnapPoints;
+  Color backgroundColor;
+  bool readonly;
 
-  const CanvasSettings(
+  CanvasSettings(
       {required this.width,
       required this.height,
       this.readonly = false,

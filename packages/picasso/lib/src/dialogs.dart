@@ -9,7 +9,7 @@ showPicassoEditorDialog({
   required void Function(RenderOutput output) callback,
   ThemeData? themeOverride,
   List<PicassoTool> tools = const [],
-  CanvasSettings settings = const CanvasSettings(width: 1080, height: 1080),
+  CanvasSettings? settings,
   ToolDisplayWidgetFactory displayWidgetFactory =
       const ModernToolDisplayWidgetFactory(),
   EditorContainerFactory containerFactory =
@@ -33,7 +33,7 @@ showPicassoEditorDialog({
                 height: mq.size.height,
                 child: PicassoEditor(
                   key: editorKey,
-                  settings: settings,
+                  settings: settings ?? CanvasSettings(width: 1080, height: 1080),
                   tools: combinedTools,
                   bindings: bindings,
                   saveData: saveData,
@@ -61,7 +61,7 @@ showPicassoEditorDialogTools({
   required List<PicassoTool> tools,
   required void Function(RenderOutput output) callback,
   ThemeData? themeOverride,
-  CanvasSettings settings = const CanvasSettings(width: 1080, height: 1080),
+  CanvasSettings? settings,
   ToolDisplayWidgetFactory displayWidgetFactory =
   const ModernToolDisplayWidgetFactory(),
   EditorContainerFactory containerFactory =
@@ -84,7 +84,7 @@ showPicassoEditorDialogTools({
             height: mq.size.height,
             child: PicassoEditor(
               key: editorKey,
-              settings: settings,
+              settings: settings ?? CanvasSettings(width: 1080, height: 1080),
               tools: tools,
               bindings: bindings,
               saveData: saveData,

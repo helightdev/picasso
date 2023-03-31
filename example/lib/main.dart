@@ -63,7 +63,7 @@ class _MainViewState extends State<MainView> {
         width: mq.size.width,
         height: mq.size.height,
         child: PicassoEditor(
-            settings: const CanvasSettings(height: 1080, width: 1080),
+            settings: CanvasSettings(height: 1080, width: 1080),
             containerFactory: const ModernColumnEditorContainerFactory(),
             dialogFactory: const BottomSheetEditorDialogFactory(),
             displayWidgetFactory:
