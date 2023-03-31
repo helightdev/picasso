@@ -1,0 +1,30 @@
+name: picasso
+description: A modular cross platform image editor package for flutter.
+version: 0.0.3+2-beta.0
+repository: https://github.com/helightdev/picasso
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  http: ^0.13.5
+  meta: ^1.9.0
+  collection: ^1.17.1
+  logging: ^1.1.1
+  intl: ^0.18.0
+  image: ^4.0.15
+  uuid: ^3.0.7
+  duffer: ^2.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter: {}

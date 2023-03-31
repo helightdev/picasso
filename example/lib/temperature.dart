@@ -31,6 +31,10 @@ class TemperatureLayer extends NonInteractiveCoverLayer with SingleSliderValue {
   @override
   double value = 0.5;
 
+  TemperatureLayer() {
+    name = "Temperature Layer";
+  }
+
   @override
   void reset() {
     value = 0.5;

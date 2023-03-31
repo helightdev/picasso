@@ -1,1 +1,0 @@
-flutter gen-l10n --arb-dir=translations/ --template-arb-file=translations_en.arb --output-localization-file=translations.dart --output-class=PicassoTranslations --output-dir=lib/l10n --no-synthetic-package
