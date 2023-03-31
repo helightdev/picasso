@@ -1,3 +1,9 @@
+## 1.0.0
+
+ - .
+
+ - **FEAT**: Picasso 1.0 🥳.
+
 ## 0.0.3+2-beta.0
  - **CHORE**: beta version for dart 3
 
