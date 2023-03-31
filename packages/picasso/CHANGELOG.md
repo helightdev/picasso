@@ -1,3 +1,7 @@
+## 1.0.0-beta.2
+
+ - **FIX**: make settings not final anymore.
+
 ## 1.0.0-beta.1
 
  - **FEAT**: Picasso 1.0 🥳.
