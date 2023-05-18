@@ -89,7 +89,7 @@ class StencilLayer extends PicassoLayer {
 
   StencilLayer(this.presetId, this.preset)
       : super(
-            flags: LayerFlags.presetNotInteractiveCover,
+            flags: LayerFlags.presetScreenspaceCover,
     name: "Stencil Layer"
   );
 

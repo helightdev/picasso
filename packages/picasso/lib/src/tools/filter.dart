@@ -138,21 +138,15 @@ class FilterPreset {
   }
 }
 
-class FilterLayer extends NonInteractiveCoverLayer {
+class FilterLayer extends PicassoLayer {
   double opacity = 1.0;
   FilterPreset preset;
   String? presetId;
   FilterTool? tool;
 
-  FilterLayer(this.presetId, this.preset, this.tool) {
+  FilterLayer(this.presetId, this.preset, this.tool): super(flags: LayerFlags.presetScreenspaceCover) {
     name = "Filter Layer";
     associatedTool = tool;
-  }
-
-  @override
-  Widget buildFixed(
-      BuildContext context, TransformData data, PicassoCanvasState state) {
-    return preset.widgetBuilder(opacity);
   }
 
   @override
@@ -160,6 +154,17 @@ class FilterLayer extends NonInteractiveCoverLayer {
     properties.add(StringProperty("preset", preset.name));
     properties.add(PercentProperty("opacity", opacity));
   }
+
+  @override
+  Widget build(BuildContext context, TransformData data, PicassoCanvasState state) {
+    return ConstrainedBox(
+      constraints: BoxConstraints.tight(state.canvasSize),
+      child: preset.widgetBuilder(opacity),
+    );
+  }
+
+  @override
+  Size calculateSize(Size canvas, TransformData data) => canvas;
 }
 
 // ignore: must_be_immutable

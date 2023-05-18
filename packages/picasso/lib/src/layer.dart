@@ -42,6 +42,9 @@ class LayerFlags {
   static final int logical =             int.parse("0000000000100000", radix: 2);
   /// Defines if this layer will be included in the final render pass.
   static final int renderable =          int.parse("0000000000010000", radix: 2);
+  /// Defines if a layer is dependent on the flutter layouting.
+  /// This will disable caching of the layer widget for this layer.
+  static final int screenspace =         int.parse("0000000000001000", radix: 2);
 
   /// rotatable, movable, scalable, tappable, promoting, deletable, snapping, renderable
   static final int presetDefault = rotatable | movable | scalable |
@@ -54,6 +57,9 @@ class LayerFlags {
 
   /// passthrough, renderable, cover
   static final int presetNotInteractiveCover = passthrough | renderable | cover;
+  
+  /// passthrough, renderable, cover, screenspace
+  static final int presetScreenspaceCover = passthrough | renderable | cover | screenspace;
 }
 
 abstract class PicassoLayer {
@@ -125,7 +131,7 @@ abstract class PicassoLayer {
   Widget buildCached(
       BuildContext context, TransformData data, PicassoCanvasState state) {
     if (hasFlag(LayerFlags.scalable) && data.scale != _previousScale) isDirty = true;
-    if (isDirty) {
+    if (isDirty || hasFlag(LayerFlags.screenspace)) {
       isDirty = false;
       _cachedWidget = build(context, data, state);
       _previousScale = data.scale;

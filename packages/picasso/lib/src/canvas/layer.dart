@@ -58,7 +58,8 @@ class LayerWidget extends StatelessWidget {
       FlagProperty("cover", value: layer.hasFlag(LayerFlags.cover), defaultValue: false, ifTrue: "cover"),
       FlagProperty("snapping", value: layer.hasFlag(LayerFlags.snapping), defaultValue: true, ifFalse: "not snapping"),
       FlagProperty("logicRotatable", value: layer.hasFlag(LayerFlags.logicRotatable), defaultValue: false, ifTrue: "is manually rotatable"),
-      FlagProperty("renderable", value: layer.hasFlag(LayerFlags.renderable), defaultValue: true, ifFalse: "no render output")
+      FlagProperty("renderable", value: layer.hasFlag(LayerFlags.renderable), defaultValue: true, ifFalse: "no render output"),
+      FlagProperty("screenspace", value: layer.hasFlag(LayerFlags.screenspace), defaultValue: false, ifTrue: "screenspace layer")
     ]));
 
     var transformBuilder = DiagnosticPropertiesBuilder();
