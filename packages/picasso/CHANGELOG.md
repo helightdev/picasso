@@ -1,3 +1,7 @@
+## 1.0.0-beta.3
+
+ - **FEAT**: add screenspace layer flag for correctly handling flutter layout dependent widgets.
+
 ## 1.0.0-beta.2
 
  - **FIX**: make settings not final anymore.
